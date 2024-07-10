@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Lezione 02/07/2024</title>
+    <style>
+      :root {
+        --primary-color: green;
+        --pippo: calc(30px + 50px);
+      }
+      body {
+        font-size: 60px;
+      }
+      h1, .reference {
+        color: var(--primary-color);
+      }
+
+      h1 {
+        font-size: var(--pippo);
+        width: calc(100% - 50px);
+      }
+
+      ul li {
+        font-size: min(1em, 30px, 50px)
+      }
+
+      .reference > li {
+        width: calc(100% - 50px);
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Lezione 02/07/2024</h1>
+    <ul>
+      <li>Unità di Misura</li>
+      <li>CSS Functions</li>
+      <div class="reference">
+        <li>CSS Custom Properties</li>
+      </div>
+    </ul>
+  </body>
+</html>
