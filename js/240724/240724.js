@@ -4,6 +4,8 @@ let car = {
   brand: "fiat",
   price: 23423,
 };
+car.cilindrata = "999cc";
+car.color = "white";
 
 let obj1 = { value: 1 };
 const obj2 = { value: 1 };
