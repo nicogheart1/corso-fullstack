@@ -1,0 +1,9 @@
+{
+    "data": "ciao",
+    "name": "Mario",
+    "age": 16,
+    "list": ["string", 12, [1, "ciao"], {}],
+    "obj": {
+        "property": "19"
+    }
+}
