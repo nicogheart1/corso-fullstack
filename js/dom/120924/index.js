@@ -5,8 +5,8 @@ const h1 = document.getElementById('title');
 
 console.log(h1.innerHTML);
 
-h1.innerText = "Sono il nuovo titolo";
-h1.innerHTML = "<i>Sono un altro titolo<i>";
+//h1.innerText = "<i>Sono un altro titolo</i>";
+h1.innerHTML = "<i>Sono un altro titolo</i>";
 
 h1.style.color = "red";
 h1.style.fontSize = "30px";
@@ -31,4 +31,10 @@ form.classList.remove("classe-da-rimuovere");
 console.log("form classList", form.classList);
 
 console.log("questo è il paragrafo appena creato", paragraph);
+
+const div = document.createElement('div');
+div.classList.add("container");
+div.innerText = new Date().toISOString();
+
+document.getElementById("target").appendChild(div);
 
