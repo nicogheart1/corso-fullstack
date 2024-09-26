@@ -1,0 +1,15 @@
+{
+  "name": "first-package",
+  "version": "1.0.0",
+  "description": "Is a simple package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Niccolò Valente",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^9.11.1",
+    "prettier": "^3.2.3"
+  }
+}
