@@ -1,11 +1,13 @@
 const Button = (props) => {
   console.log("button props", props);
-  const { id, btnLabel } = props;
+  const { disabled, btnLabel, onBtnClick } = props;
   return (
     <button
       style={{ color: props.btnColor, backgroundColor: props.bg }}
-      id={id}
-      className="btn"
+      id={props.id}
+      className={`btn ${props.className}`}
+      disabled={disabled}
+      onClick={() => onBtnClick(props.id)}
     >
       {btnLabel}
     </button>

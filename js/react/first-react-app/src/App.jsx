@@ -1,17 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Button from './Button'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Button from "./Button";
 
 function App(props) {
   console.log("App props", props);
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const test = (value) => {
+    console.log("sono dentro la function test", value);
+  };
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" id="anchor-1">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
@@ -21,15 +25,26 @@ function App(props) {
       <h1>Ciao sono il titolo nuovo</h1>
 
       <div>
-        <Button btnLabel="bottone 1" id="btn-1" btnColor="red"/>
+        <Button
+          className="sono-una-classe"
+          onBtnClick={test}
+          btnLabel={count}
+          id={3453}
+          btnColor="red"
+          franco="renato"
+        />
       </div>
       <div>
-        <Button bg="yellow" id="btn-2" btnLabel="paperino 123" />
+        <Button
+          onBtnClick={test}
+          bg="yellow"
+          id="btn-2"
+          btnLabel="paperino 123"
+        />
       </div>
 
-      
       <div className="card">
-        <button onClick={() => setCount(count + 1)}>
+        <button className="sono-una-classe" onClick={() => setCount(count + 1)}>
           count is {count}
         </button>
         <p>
@@ -40,7 +55,7 @@ function App(props) {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
