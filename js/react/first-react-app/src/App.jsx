@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Button from "./Button";
+import { printTimeStamp } from "./utils";
 
 function App(props) {
   console.log("App props", props);
@@ -24,23 +25,30 @@ function App(props) {
       </div>
       <h1>Ciao sono il titolo nuovo</h1>
 
+      {/*condizione ? blocco1 : blocco2*/}
+      {count !== 0 ? (
+        <div>
+          <Button
+            className="sono-una-classe"
+            onBtnClick={test}
+            btnLabel={count}
+            id={3453}
+            btnColor="red"
+            franco="renato"
+          />
+        </div>
+      ) : (
+        <div>Count vale 0</div>
+      )}
+
+      {printTimeStamp()}
+
       <div>
-        <Button
-          className="sono-una-classe"
-          onBtnClick={test}
-          btnLabel={count}
-          id={3453}
-          btnColor="red"
-          franco="renato"
-        />
+        <Button onBtnClick={test} bg="blue" id="btn-2" btnLabel={123} />
       </div>
-      <div>
-        <Button
-          onBtnClick={test}
-          bg="yellow"
-          id="btn-2"
-          btnLabel="paperino 123"
-        />
+
+      <div id="questo-elemento">
+        <Button onBtnClick={test} bg="red" id="btn-3" />
       </div>
 
       <div className="card">
