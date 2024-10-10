@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Button from "./Button";
 import { printTimeStamp } from "./utils";
-import Datetime from "./Date";
+import Datetime from "./Datetime";
 
 function App(props) {
   console.log("App props", props);
