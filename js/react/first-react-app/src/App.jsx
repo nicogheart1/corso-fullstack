@@ -5,6 +5,7 @@ import "./App.css";
 import Button from "./Button";
 import { printTimeStamp } from "./utils";
 import Datetime from "./Datetime";
+import Counter from "./Counter";
 
 function App(props) {
   console.log("App props", props);
@@ -17,15 +18,15 @@ function App(props) {
   const customCondition = () => {
     /*condizione complessa*/
     if (count !== undefined) {
-      return <div>come sono bello</div>
+      return <div>come sono bello</div>;
     }
     return null;
-  }
+  };
 
   return (
     <>
       <div>
-
+        <Counter />
         <Datetime />
 
         <a href="https://vitejs.dev" target="_blank" id="anchor-1">
@@ -67,7 +68,12 @@ function App(props) {
       </div>
 
       <div id="questo-elemento">
-        <Button onBtnClick={test} bg="red" id="sono-il-nuovo-id-2" btnLabel={2} />
+        <Button
+          onBtnClick={test}
+          bg="red"
+          id="sono-il-nuovo-id-2"
+          btnLabel={2}
+        />
       </div>
 
       <div className="card">
