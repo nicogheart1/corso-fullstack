@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Button from "./Button";
 import { printTimeStamp } from "./utils";
+import Datetime from "./Date";
 
 function App(props) {
   console.log("App props", props);
@@ -13,9 +14,20 @@ function App(props) {
     console.log("sono dentro la function test", value);
   };
 
+  const customCondition = () => {
+    /*condizione complessa*/
+    if (count !== undefined) {
+      return <div>come sono bello</div>
+    }
+    return null;
+  }
+
   return (
     <>
       <div>
+
+        <Datetime />
+
         <a href="https://vitejs.dev" target="_blank" id="anchor-1">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -26,6 +38,13 @@ function App(props) {
       <h1>Ciao sono il titolo nuovo</h1>
 
       {/*condizione ? blocco1 : blocco2*/}
+
+      {count && <div>funziono lo stesso</div>}
+
+      {count ? "c'è count" : "non c'è count"}
+
+      {customCondition()}
+
       {count !== 0 ? (
         <div>
           <Button
@@ -48,7 +67,7 @@ function App(props) {
       </div>
 
       <div id="questo-elemento">
-        <Button onBtnClick={test} bg="red" id="btn-3" />
+        <Button onBtnClick={test} bg="red" id="sono-il-nuovo-id-2" btnLabel={2} />
       </div>
 
       <div className="card">
