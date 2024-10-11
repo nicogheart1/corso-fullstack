@@ -6,9 +6,9 @@ import Button from "./Button";
 import { printTimeStamp } from "./utils";
 import Datetime from "./Datetime";
 import Counter from "./Counter";
+import Crono from "./Crono";
 
-function App(props) {
-  console.log("App props", props);
+function App() {
   const [count, setCount] = useState(0);
 
   const test = (value) => {
@@ -26,6 +26,7 @@ function App(props) {
   return (
     <>
       <div>
+        <Crono />
         <Counter />
         <Datetime />
 

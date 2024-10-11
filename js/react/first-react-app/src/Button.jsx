@@ -1,7 +1,6 @@
 import { numberIsEven } from "./utils";
 
 const Button = (props) => {
-  console.log("button props", props);
   const { disabled, btnLabel, onBtnClick } = props;
 
   if (!btnLabel) {
