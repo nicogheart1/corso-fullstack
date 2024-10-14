@@ -21,7 +21,15 @@ const Counter = () => {
     setCount((upatedState) => upatedState + 1);
 
     console.log("count", count);
+
+    //array.push(count);
+    setArray([...array, count]);
   };
+
+
+  const [array, setArray] = useState([]);
+
+  console.log("array", array);
 
   return (
     <>
@@ -34,6 +42,8 @@ const Counter = () => {
         <div>Counter state: {count}</div>
         <button onClick={increaseState}>Increase</button>
       </div>
+
+      <div>Array lungo {array.length}</div>
     </>
   );
 };

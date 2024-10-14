@@ -7,6 +7,7 @@ import { printTimeStamp } from "./utils";
 import Datetime from "./Datetime";
 import Counter from "./Counter";
 import Crono from "./Crono";
+import EventHandler from "./EventHandler";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,8 @@ function App() {
         <Crono />
         <Counter />
         <Datetime />
+
+        <EventHandler />
 
         <a href="https://vitejs.dev" target="_blank" id="anchor-1">
           <img src={viteLogo} className="logo" alt="Vite logo" />
