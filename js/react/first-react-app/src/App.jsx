@@ -6,13 +6,15 @@ import Counter from "./Counter";
 import Crono from "./Crono";
 import EventHandler from "./EventHandler";
 import ConditionalRendering from "./ConditionalRendering";
+import Form from "./Form";
+import FormWithState from "./FormWithState";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-    <h1>FS30 React</h1>
+      <h1>FS30 React</h1>
       <div className="components-grid">
         <Crono />
         <Counter />
@@ -23,6 +25,12 @@ function App() {
           <h2>Function Rendering</h2>
           {printTimeStamp()}
         </div>
+        <Form />
+        <FormWithState
+          email="vengodafuori@mail.com"
+          password="123456"
+          onSubmit={(data) => console.log("App data", data)}
+        />
       </div>
 
       <div className="card inline">
