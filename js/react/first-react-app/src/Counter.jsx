@@ -26,25 +26,23 @@ const Counter = () => {
     setArray([...array, count]);
   };
 
-
   const [array, setArray] = useState([]);
 
-  console.log("array", array);
-
   return (
-    <>
-      <div>
-        <div>Counter variabile: {value}</div>
-        <button onClick={increase}>Increase</button>
+    <div>
+      <h2>Counter</h2>
+      <div className="inline" style={{ marginBottom: "0.5rem"}}>
+        <div>Counter variable: {value}</div>
+        <button onClick={increase}>Increase variable</button>
       </div>
 
-      <div>
+      <div className="inline" style={{ marginBottom: "1rem"}}>
         <div>Counter state: {count}</div>
-        <button onClick={increaseState}>Increase</button>
+        <button onClick={increaseState}>Increase state</button>
       </div>
 
       <div>Array lungo {array.length}</div>
-    </>
+    </div>
   );
 };
 

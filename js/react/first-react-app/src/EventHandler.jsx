@@ -5,9 +5,12 @@ const EventHandler = () => {
   };
 
   return (
-    <div onClick={eventHandler}>
-      Event Handler
-      <span>Clicca me</span>
+    <div>
+      <h2>EventHandler</h2>
+      <div onClick={eventHandler}>
+        Event Handler &nbsp;
+        <span>Clicca me</span>
+      </div>
     </div>
   );
 };
