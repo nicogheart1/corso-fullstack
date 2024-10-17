@@ -8,6 +8,7 @@ import EventHandler from "./EventHandler";
 import ConditionalRendering from "./ConditionalRendering";
 import Form from "./Form";
 import FormWithState from "./FormWithState";
+import List from "./List";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -39,6 +40,8 @@ function App() {
         </button>
         <button onClick={() => setCount(0)}>Reset count</button>
       </div>
+
+      <List />
     </>
   );
 }

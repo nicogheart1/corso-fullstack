@@ -8,10 +8,10 @@ const Button = (props) => {
     return null;
   }
 
-  if (!numberIsEven(btnLabel)) {
+  /*if (!numberIsEven(btnLabel)) {
     console.log("btnLabel è dispari", btnLabel)
     return null;
-  }
+  }*/
 
   return (
     <button
