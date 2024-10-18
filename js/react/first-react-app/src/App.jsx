@@ -9,6 +9,7 @@ import ConditionalRendering from "./ConditionalRendering";
 import Form from "./Form";
 import FormWithState from "./FormWithState";
 import List from "./List";
+import StyledContainer from "./StyledContainer/StyledContainer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +33,11 @@ function App() {
           password="123456"
           onSubmit={(data) => console.log("App data", data)}
         />
+        <StyledContainer />
+
+        <div className="container">
+          <h2>Prova css</h2>
+        </div>
       </div>
 
       <div className="card inline">
