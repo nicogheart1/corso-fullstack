@@ -19,7 +19,7 @@ const Form = () => {
       <h2>Form</h2>
       <div>
         <form onSubmit={handleOnSubmit}>
-          <input ref={emailRef} type="email" name="email" placeholder="Inssert e-mail" />
+          <input ref={emailRef} type="email" name="email" placeholder="Insert e-mail" />
           <input
             type="password"
             name="password"

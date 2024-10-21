@@ -10,6 +10,7 @@ import Form from "./Form";
 import FormWithState from "./FormWithState";
 import List from "./List";
 import StyledContainer from "./StyledContainer/StyledContainer";
+import Grid from "./Grid";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
       <h1>FS30 React</h1>
-      <div className="components-grid">
+      <Grid>
         <Crono />
         <Counter />
         <Datetime />
@@ -38,7 +39,7 @@ function App() {
         <div className="container">
           <h2>Prova css</h2>
         </div>
-      </div>
+      </Grid>
 
       <div className="card inline">
         <button className="sono-una-classe" onClick={() => setCount(count + 1)}>
