@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import "./App.css";
 import { printTimeStamp } from "./utils";
 import Datetime from "./Datetime";
@@ -12,11 +12,20 @@ import List from "./List";
 import StyledContainer from "./StyledContainer/StyledContainer";
 import Grid from "./Grid";
 
+export const LanguageProvider = createContext("italian");
+
 function App() {
   const [count, setCount] = useState(0);
 
+  const [lang, setLang] = useState("italian");
+
   return (
-    <>
+    <LanguageProvider.Provider value={lang}>
+      <button
+        onClick={() => setLang(lang === "italian" ? "english" : "italian")}
+      >
+        Change language {lang}
+      </button>
       <h1>FS30 React</h1>
       <Grid>
         <Crono />
@@ -49,7 +58,7 @@ function App() {
       </div>
 
       <List />
-    </>
+    </LanguageProvider.Provider>
   );
 }
 
