@@ -11,6 +11,7 @@ import FormWithState from "./FormWithState";
 import List from "./List";
 import StyledContainer from "./StyledContainer/StyledContainer";
 import Grid from "./Grid";
+import ApiIntegration from "./ApiIntegration";
 
 export const LanguageProvider = createContext("italian");
 
@@ -28,6 +29,7 @@ function App() {
       </button>
       <h1>FS30 React</h1>
       <Grid>
+        <ApiIntegration />
         <Crono />
         <Counter />
         <Datetime />
