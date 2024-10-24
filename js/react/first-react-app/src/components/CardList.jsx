@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Button from "./Button";
-import { LanguageProvider } from "./App";
+import { LanguageProvider } from "../App";
 
 const CardList = ({ value }) => {
   const lang = useContext(LanguageProvider);

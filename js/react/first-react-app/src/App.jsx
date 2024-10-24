@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 import "./App.css";
 import { printTimeStamp } from "./utils";
-import Datetime from "./Datetime";
-import Counter from "./Counter";
-import Crono from "./Crono";
-import EventHandler from "./EventHandler";
-import ConditionalRendering from "./ConditionalRendering";
-import Form from "./Form";
-import FormWithState from "./FormWithState";
-import List from "./List";
-import StyledContainer from "./StyledContainer/StyledContainer";
-import Grid from "./Grid";
-import ApiIntegration from "./ApiIntegration";
+import Datetime from "./components/Datetime";
+import Counter from "./components/Counter";
+import Crono from "./components/Crono";
+import EventHandler from "./components/EventHandler";
+import ConditionalRendering from "./components/ConditionalRendering";
+import Form from "./components/Form";
+import FormWithState from "./components/FormWithState";
+import List from "./components/List";
+import StyledContainer from "./components/StyledContainer/StyledContainer";
+import Grid from "./components/Grid";
+import ApiIntegration from "./components/ApiIntegration";
 import { useCounter } from "./hooks/useCounter";
 
 export const LanguageProvider = createContext("italian");
