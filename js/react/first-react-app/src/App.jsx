@@ -12,11 +12,12 @@ import List from "./List";
 import StyledContainer from "./StyledContainer/StyledContainer";
 import Grid from "./Grid";
 import ApiIntegration from "./ApiIntegration";
+import { useCounter } from "./hooks/useCounter";
 
 export const LanguageProvider = createContext("italian");
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { count, increment, reset } = useCounter(10);
 
   const [lang, setLang] = useState("italian");
 
@@ -31,7 +32,6 @@ function App() {
       <Grid>
         <ApiIntegration />
         <Crono />
-        <Counter />
         <Datetime />
         <EventHandler />
         <ConditionalRendering count={count} />
@@ -46,6 +46,7 @@ function App() {
           onSubmit={(data) => console.log("App data", data)}
         />
         <StyledContainer />
+        <Counter />
 
         <div className="container">
           <h2>Prova css</h2>
@@ -53,10 +54,10 @@ function App() {
       </Grid>
 
       <div className="card inline">
-        <button className="sono-una-classe" onClick={() => setCount(count + 1)}>
+        <button className="sono-una-classe" onClick={increment}>
           count is {count}
         </button>
-        <button onClick={() => setCount(0)}>Reset count</button>
+        <button onClick={reset}>Reset count</button>
       </div>
 
       <List />

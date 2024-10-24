@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCounter } from "./hooks/useCounter";
 
 const Counter = () => {
   // esempio con variabile
@@ -10,15 +11,15 @@ const Counter = () => {
 
   // esempio con useState
   // const [stato, setStato] = useState("valore di default");
-  const [count, setCount] = useState(0);
+  const { count, increment } = useCounter(88);
   const increaseState = () => {
     // setCount(33);
     //setCount(count + 1);
 
-    setCount((upatedState) => upatedState + 1);
-    setCount((upatedState) => upatedState + 1);
-    setCount((upatedState) => upatedState + 1);
-    setCount((upatedState) => upatedState + 1);
+    increment((upatedState) => upatedState + 1);
+    increment((upatedState) => upatedState + 1);
+    increment((upatedState) => upatedState + 1);
+    increment((upatedState) => upatedState + 1);
 
     console.log("count", count);
 
