@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FormWithState = ({ email: extEmail, password: extPassword, onSubmit: extOnSubmit }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState(extEmail);
   const [password, setPassword] = useState(extPassword);
   //const [formData, setFormData]= useState({ email: "", password: ""});
@@ -12,6 +14,8 @@ const FormWithState = ({ email: extEmail, password: extPassword, onSubmit: extOn
 
     //console.log("data", formData);
     //extOnSubmit(formData);
+
+    navigate("/list");
   };
 
   return (
