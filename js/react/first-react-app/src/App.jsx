@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import List from './components/List'
+import ListItem from "./components/ListItem";
 
 export const LanguageProvider = createContext("italian");
 
@@ -29,7 +30,10 @@ function App() {
               </div>
             }
           />
-          <Route path="/list" element={<List />} />
+          <Route path="/list" element={<List />}>
+            <Route index element={<div>Select an item</div>} />
+            <Route path="/list/:itemId" element={<ListItem />} />      
+          </Route>
 
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
