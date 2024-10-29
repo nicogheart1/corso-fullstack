@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 
 const ApiIntegration = () => {
   const [loading, setLoading] = useState(false);
-  const [beerList, setBeerList] = useState([]);
+  const [list, setList] = useState([]);
 
   async function getData() {
     try {
       setLoading(true);
-      const response = await fetch("https://api.sampleapis.com/beers/ale");
+      const response = await fetch("http://universities.hipolabs.com/search?country=Italy");
       const data = await response.json();
       console.log("data", data);
-      setBeerList(data);
+      setList(data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -27,8 +27,8 @@ const ApiIntegration = () => {
       <div>{loading ? "Loading..." : null}</div>
       <h2>API Integration</h2>
       <div>
-        {beerList.slice(0,9).map((beer) => (
-          <div key={beer.id}>{beer.name}</div>
+        {list.slice(0,9).map((item) => (
+          <div key={item.id}>{item.name}</div>
         ))}
       </div>
     </div>
