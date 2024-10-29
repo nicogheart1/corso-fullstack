@@ -11,6 +11,7 @@ import FormWithState from "../components/FormWithState";
 import StyledContainer from "../components/StyledContainer/StyledContainer";
 import Counter from "../components/Counter";
 import { useCounter } from "../hooks/useCounter";
+import ApiIntegrationSWR from "../components/ApiIntegrationSWR";
 
 const Home = () => {
   const { count, increment, reset } = useCounter(10);
@@ -20,6 +21,7 @@ const Home = () => {
       <Link to="/about">Go to About page</Link>
       <Grid>
         <ApiIntegration />
+        <ApiIntegrationSWR />
         <Crono />
         <Datetime />
         <EventHandler />
