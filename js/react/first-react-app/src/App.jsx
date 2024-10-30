@@ -10,6 +10,8 @@ export const LanguageProvider = createContext("italian");
 function App() {
   const [lang, setLang] = useState("italian");
 
+  console.log("Github API:", process.env.REACT_APP_GITHUB_API);
+
   return (
     <BrowserRouter>
       <LanguageProvider.Provider value={lang}>
