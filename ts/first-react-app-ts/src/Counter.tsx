@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 interface CounterProps {
-  initialValue: number;
+  initialValue?: number;
 }
 
 const Counter = (props: CounterProps) => {
-  const { initialValue } = props;
+  const { initialValue = 0 } = props;
 
   const [count, setCount] = useState(initialValue);
   return (
     <div>
       {count}
       <div>
-        <button onClick={() => setCount(1)}>Increase</button>
+        <button onClick={() => setCount(count + 1)}>Increase {count}</button>
       </div>
     </div>
   );
