@@ -1,0 +1,21 @@
+{
+  "name": "node-express-first-app",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "tsc-watch --noClear -p ./tsconfig.json --outDir ./dist --onSuccess \"node ./dist/server.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.4",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
