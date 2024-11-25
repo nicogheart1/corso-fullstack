@@ -24,7 +24,6 @@ const setupDB = async () => {
   const studentsDb = await db.many(`
     SELECT * FROM students;
   `);
-  
 
   console.log("studentsDb", studentsDb);
 };
@@ -40,7 +39,6 @@ type Student = {
 const studentSchema = Joi.object({
   name: Joi.string().required().min(3).max(30),
   age: Joi.number().integer().required().min(1).max(99),
-  id: Joi.number().integer().required().min(1).max(5),
 });
 
 let students: Student[] = [];
@@ -88,15 +86,25 @@ const getStudentDetails = async (request: Request, response: Response) => {
   }
 };
 
-const addNewStudent = (request: Request, response: Response) => {
-  const { body } = request;
+const addNewStudent = async (request: Request, response: Response) => {
+  try {
+    const { body } = request;
 
-  const dataValidation = studentSchema.validate(body);
-  if (dataValidation.error) {
-    response.status(400).send(dataValidation.error);
-  } else {
-    students.push(body);
-    response.status(201).send(`Aggiunto studente con id: ${body.id}`);
+    const dataValidation = studentSchema.validate(body);
+    if (dataValidation.error) {
+      response.status(400).send(dataValidation.error);
+    } else {
+      await db.none(
+        `
+        INSERT INTO students (name, age) VALUES ($1, $2);
+    `,
+        [body.name, body.age]
+      );
+      response.status(201).send(`Aggiunto studente`);
+    }
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error");
   }
 };
 
@@ -112,10 +120,29 @@ const updateStudent = (request: Request, response: Response) => {
   response.json(students);
 };
 
-const deleteStudent = (request: Request, response: Response) => {
-  const { params } = request;
-  students = students.filter((student) => student.id !== params.studentId);
-  response.send(`The student deleted is: ${params.studentId}`);
+const deleteStudent = async (request: Request, response: Response) => {
+  try {
+    const { params } = request;
+    if (
+      Joi.number()
+        .integer()
+        .required()
+        .min(1)
+        .max(99999)
+        .validate(params.studentId).error
+    ) {
+      response.status(400).send("Lo student id non è corretto");
+    } else {
+      await db.none(
+        `DELETE FROM students WHERE id=$1`,
+        Number(params.studentId)
+      );
+      response.send(`The student deleted is: ${params.studentId}`);
+    }
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error");
+  }
 };
 
 export {
