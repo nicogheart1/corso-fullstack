@@ -30,18 +30,10 @@ const setupDB = async () => {
 
 setupDB();
 
-type Student = {
-  name: string;
-  age: number;
-  id: string;
-};
-
 const studentSchema = Joi.object({
   name: Joi.string().required().min(3).max(30),
   age: Joi.number().integer().required().min(1).max(99),
 });
-
-let students: Student[] = [];
 
 const getStudentList = async (request: Request, response: Response) => {
   try {
@@ -108,16 +100,33 @@ const addNewStudent = async (request: Request, response: Response) => {
   }
 };
 
-const updateStudent = (request: Request, response: Response) => {
-  const { body, params } = request;
-  students = students.map((student: Student) => {
-    if (student.id === params.studentId) {
-      return { ...student, ...body, id: student.id };
+const updateStudent = async (request: Request, response: Response) => {
+  try {
+    const { body, params } = request;
+    const dataValidation = studentSchema.validate(body);
+    if (
+      Joi.number()
+        .integer()
+        .required()
+        .min(1)
+        .max(99999)
+        .validate(params.studentId).error ||
+      dataValidation.error
+    ) {
+      response.status(400).send("La richiesta è in un formato non corretto");
     } else {
-      return student;
+      await db.none(`UPDATE students SET name=$2, age=$3 WHERE id=$1`, [
+        params.studentId,
+        body.name,
+        body.age,
+      ]);
+
+      response.send(`Aggiornato studente con id: ${params.studentId}`);
     }
-  });
-  response.json(students);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error");
+  }
 };
 
 const deleteStudent = async (request: Request, response: Response) => {
