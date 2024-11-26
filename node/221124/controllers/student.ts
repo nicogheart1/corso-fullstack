@@ -11,7 +11,8 @@ const setupDB = async () => {
         CREATE TABLE students (
             id SERIAL NOT NULL PRIMARY KEY,
             name TEXT NOT NULL,
-            age INTEGER NOT NULL
+            age INTEGER NOT NULL,
+            image TEXT
         );
     `);*/
 
@@ -154,10 +155,35 @@ const deleteStudent = async (request: Request, response: Response) => {
   }
 };
 
+const uploadImage = async (request: Request, response: Response) => {
+  try {
+    const { params } = request;
+    const filename = request.file?.path;
+
+    if (
+      Joi.number()
+        .integer()
+        .required()
+        .min(1)
+        .max(99999)
+        .validate(params.studentId).error || !filename
+    ) {
+      response.status(400).send("La richiesta è in un formato non corretto");
+    } else {
+      await db.none(`UPDATE students SET image=$2 WHERE id=$1`, [params.studentId, filename])
+      response.send("Immagine caricata con successo");
+    }
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error");
+  }
+};
+
 export {
   getStudentList,
   getStudentDetails,
   addNewStudent,
   updateStudent,
   deleteStudent,
+  uploadImage,
 };
