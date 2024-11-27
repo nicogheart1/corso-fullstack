@@ -1,35 +1,7 @@
 import { Request, Response } from "express";
 import Joi from "joi";
-import pgPromise from "pg-promise";
+import { db } from "./db";
 
-const db = pgPromise()("postgres://postgres:postgres@localhost:5432/postgres");
-
-const setupDB = async () => {
-  /*await db.none(`
-        DROP TABLE IF EXISTS students;
-
-        CREATE TABLE students (
-            id SERIAL NOT NULL PRIMARY KEY,
-            name TEXT NOT NULL,
-            age INTEGER NOT NULL,
-            image TEXT
-        );
-    `);*/
-
-  /*await db.none(`
-        INSERT INTO students (name, age) VALUES ('Mario', 24);
-
-        INSERT INTO students (name, age) VALUES ('Lucia', 31);
-    `);*/
-
-  const studentsDb = await db.many(`
-    SELECT * FROM students;
-  `);
-
-  console.log("studentsDb", studentsDb);
-};
-
-setupDB();
 
 const studentSchema = Joi.object({
   name: Joi.string().required().min(3).max(30),

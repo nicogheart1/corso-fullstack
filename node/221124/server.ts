@@ -7,6 +7,7 @@ import {
   updateStudent,
   uploadImage,
 } from "./controllers/student";
+import { login } from "./controllers/auth";
 import multer from "multer";
 
 const storage = multer.diskStorage({
@@ -24,6 +25,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/uploads', express.static('uploads'));
+
+
+app.post("/auth/login", login);
 
 app.get("/students", getStudentList);
 app.get("/students/:studentId", getStudentDetails);

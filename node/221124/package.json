@@ -11,6 +11,7 @@
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.9.0",
     "tsc-watch": "^6.2.1",
@@ -19,6 +20,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "pg-promise": "^11.10.2"
   }
