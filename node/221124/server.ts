@@ -23,6 +23,8 @@ const upload = multer({ storage });
 const app = express();
 app.use(express.json());
 
+app.use('/uploads', express.static('uploads'));
+
 app.get("/students", getStudentList);
 app.get("/students/:studentId", getStudentDetails);
 app.post("/student", addNewStudent);
