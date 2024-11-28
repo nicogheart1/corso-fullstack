@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { db } from "./db";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const login = async (request: Request, response: Response) => {
   try {
@@ -18,7 +20,7 @@ const login = async (request: Request, response: Response) => {
       };
       const token = jwt.sign(
         payload,
-        "43rt5yj6y5htr4c3vt567v5htre6bby65y65htg"
+        process.env.SECRET_KEY
       );
 
       console.log("Token", token);
