@@ -7,9 +7,10 @@ import {
   updateStudent,
   uploadImage,
 } from "./controllers/student";
-import { login, signup } from "./controllers/auth";
+import { login, signup, chiSono } from "./controllers/auth";
 import multer from "multer";
 import "./controllers/passport";
+import authorize from "./controllers/authorize";
 
 const storage = multer.diskStorage({
   destination: (res, file, cb) => {
@@ -38,6 +39,8 @@ app.put("/students/:studentId", updateStudent);
 app.delete("/students/:studentId", deleteStudent);
 
 app.post("/students/:studentId/image", upload.single("image"), uploadImage);
+
+app.get("/users/chi-sono", authorize, chiSono)
 
 app.listen(3000, () => {
   console.log("Server is listening");

@@ -2,6 +2,7 @@ import passport from "passport";
 import passportJWT from "passport-jwt";
 import { db } from "./db";
 import * as dotenv from "dotenv";
+import { User } from "../types/user";
 dotenv.config();
 
 passport.use(
@@ -13,15 +14,15 @@ passport.use(
     async (payload, done) => {
       try {
         const { id } = payload;
-        const user = await db.oneOrNone(`SELECT * FROM users WHERE id=$1`, id);
+        const user: User = await db.oneOrNone(`SELECT * FROM users WHERE id=$1`, id);
 
         if (user) {
           done(null, user);
         } else {
-          done(new Error("User not found"));
+          done(new Error("User not found"), undefined);
         }
       } catch (error) {
-        done(error);
+        done(error, undefined);
       }
     }
   )

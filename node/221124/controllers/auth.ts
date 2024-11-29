@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { db } from "./db";
+import { User } from "../types/user";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -16,7 +17,7 @@ const login = async (request: Request, response: Response) => {
     if (user && user.password === password) {
       const payload = {
         id: user.id,
-        username: user.username,
+        username: user.username
       };
       const token = jwt.sign(payload, process.env.SECRET_KEY);
 
@@ -61,4 +62,21 @@ const signup = async (request: Request, response: Response) => {
   }
 };
 
-export { login, signup };
+const chiSono = async (request: Request, response: Response) => {
+  try {
+    const user = request.user as User;
+    if (user?.id) {
+      const checkUser = await db.oneOrNone(`SELECT * FROM users WHERE id=$1`, user.id);
+      if (checkUser) {
+        response.status(200).json(checkUser);
+      } else {
+        response.status(400).send("Utente non riconosciuto");
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error");
+  }
+}
+
+export { login, signup, chiSono };
