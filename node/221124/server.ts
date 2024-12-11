@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import {
   addNewStudent,
   deleteStudent,
@@ -25,6 +26,14 @@ const upload = multer({ storage });
 
 const app = express();
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    // Allow follow-up middleware to override this CORS for options
+    preflightContinue: true,
+  }),
+);
 
 app.use('/uploads', express.static('uploads'));
 

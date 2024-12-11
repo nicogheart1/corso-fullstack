@@ -7,6 +7,7 @@ dotenv.config();
 
 const login = async (request: Request, response: Response) => {
   try {
+    console.log("body", request);
     const { username, password } = request.body;
 
     const user = await db.oneOrNone(

@@ -12,6 +12,7 @@ import StyledContainer from "../components/StyledContainer/StyledContainer";
 import Counter from "../components/Counter";
 import { useCounter } from "../hooks/useCounter";
 import ApiIntegrationSWR from "../components/ApiIntegrationSWR";
+import LoginIntegration from "../components/LoginIntegration";
 
 const Home = () => {
   const { count, increment, reset } = useCounter(10);
@@ -41,6 +42,9 @@ const Home = () => {
 
         <div className="container">
           <h2>Prova css</h2>
+        </div>
+        <div className="container">
+          <LoginIntegration />
         </div>
       </Grid>
 

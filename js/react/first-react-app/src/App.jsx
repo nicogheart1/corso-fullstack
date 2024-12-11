@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import List from './components/List'
 import ListItem from "./components/ListItem";
+import ChiSono from "./components/ChiSono";
 
 export const LanguageProvider = createContext("italian");
 
@@ -29,6 +30,7 @@ function App() {
               <div>
                 <Link to="/">Return to Home</Link>
                 <h2>About</h2>
+                <ChiSono />
               </div>
             }
           />
